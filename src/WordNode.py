@@ -3,6 +3,8 @@ Class of a word node, tracking the word (duh), the number of neighbors, and
 which words this word is neighbors with.
 
 Up to you if we need this or not.
+
+I DON'T THINK WE NEED THIS
 """
 
 
@@ -17,10 +19,11 @@ class WordNode():
 
         :param other_word:  a string to compare to the current node's word
         :rtype : bool
-        Returns: true if the words differ by one letter
         """
         differences = 0
         for i in range(len(self.__word)):
+            if differences > 1:
+                return False
             if self.__word[i] != other_word[i]:
                 differences += 1
         return differences == 1

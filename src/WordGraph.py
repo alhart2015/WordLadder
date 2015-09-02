@@ -8,3 +8,6 @@ class WordGraph():
     list."""
     def __init__(self):
         self.__words = []
+
+    def __str__(self):
+      return "Words: %s" % (self.__words)

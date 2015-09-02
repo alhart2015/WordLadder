@@ -1,5 +1,23 @@
-'''
+"""
 Main file for making a ladder between two words.
+<<<<<<< .merge_file_ZNi67C
+"""
+
+
+def read_in_file():
+    pass
+
+
+def make_graph(word_list):
+    pass
+
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
+=======
 '''
 
 import sys
@@ -27,3 +45,4 @@ if __name__ == '__main__':
   graph = make_ladder(first, second, debug)
 
   print 'graph:', graph
+>>>>>>> .merge_file_SikRAv

@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b411372-3f33-427e-a491-a4fe80f7c903" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WordGraph.py" afterPath="$PROJECT_DIR$/src/WordGraph.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/WordGraphTest.py" afterPath="$PROJECT_DIR$/test/WordGraphTest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WordNode.py" afterPath="$PROJECT_DIR$/src/WordNode.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/word_ladder_main.py" afterPath="$PROJECT_DIR$/src/word_ladder_main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WordLadder.iws" />
@@ -467,7 +463,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441160736592</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added some methods n stuff. I don't think we need the node class, it's pretty totally unnecessary">
+      <created>1441234340494</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1441234340494</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -503,7 +505,8 @@
     <MESSAGE value="I guess the pythonic way to make fields private is to put two underscores between them" />
     <MESSAGE value="Added a test. Haven't figured out the overloading thing." />
     <MESSAGE value="Added gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added gitignore" />
+    <MESSAGE value="Added some methods n stuff. I don't think we need the node class, it's pretty totally unnecessary" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some methods n stuff. I don't think we need the node class, it's pretty totally unnecessary" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

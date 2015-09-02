@@ -7,4 +7,4 @@ class WordGraph():
     """Graph of words with above rules. Represents the graph as an adjacency
     list."""
     def __init__(self):
-        self.words = []
+        self.__words = []

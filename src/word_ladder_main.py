@@ -10,9 +10,9 @@ from WordGraph import WordGraph
 
 
 def debug_print(fmt, stuff, debug):
-  if debug:
-    print '***',
-    print fmt % stuff
+    if debug:
+      print '***',
+      print fmt % stuff
 
 def make_ladder(first, second, debug):
     """Return a WordGraph from the first word to the second word."""

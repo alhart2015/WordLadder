@@ -11,6 +11,8 @@ class WordGraphTest(unittest.TestCase):
         g.add_word("battlestar galactica")
         g.add_word("beats")
         print g
+        self.assertTrue(g.has_neighbor("beans"))
+        self.assertFalse(g.has_neighbor("battle"))
 
     def test_neighbor(self):
         g = WordGraph()

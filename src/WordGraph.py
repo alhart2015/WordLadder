@@ -24,7 +24,8 @@ class WordGraph():
 
         :rtype list of strings
         """
-        pass
+        if word in self.__graph.keys():
+            return depth_first_search(word, other)
 
     def add_word(self, word):
         """Adds a word to the graph. If the word is already in the graph, does nothing.
@@ -58,6 +59,12 @@ class WordGraph():
                 differences += 1
         return differences == 1
 
+    def has_neighbor(self, word):
+        """Returns true if the word has any neighbors"""
+        if word not in self.__graph.keys():
+            return False
+        return len(self.__graph[word]) > 0
+
     def __contains__(self, item):
         if item in self.__graph.keys():
             return True
@@ -73,3 +80,22 @@ class WordGraph():
                 out += " "
             out += "\n"
         return out
+
+
+def depth_first_search(start, end):
+    """Vanilla depth first search. Tryna do this without googling, see if I remember any of my schooling from 6
+    months ago.
+
+    :type start: basestring
+    :param start: the first node in the search
+
+    :type end: basestring
+    :param end: the word you're searching for
+
+    :rtype a list of strings in the path
+    """
+    return dfs_helper(start, end, [])
+
+
+def dfs_helper(start, end, path):
+    pass

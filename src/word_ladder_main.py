@@ -9,17 +9,21 @@ import sys
 from WordGraph import WordGraph
 
 
+def debug_print(fmt, stuff, debug):
+  if debug:
+    print '***',
+    print fmt % stuff
+
 def make_ladder(first, second, debug):
     """Return a WordGraph from the first word to the second word."""
-    if debug:
-        print '*** Creating a word graph from "%s" to "%s"' % (first, second)
+    debug_print('Creating a word graph from "%s" to "%s"',
+                (first, second), debug)
 
     start_time = time.time()
     graph = WordGraph()
     end_time = time.time()
 
-    if debug:
-      print '*** Elapsed time: %f s' % (end_time - start_time)
+    debug_print('Elapsed time: %f s', (end_time - start_time), debug)
 
     return graph
 

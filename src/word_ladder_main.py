@@ -2,25 +2,23 @@
 Main file for making a ladder between two words.
 """
 
+
 import sys
-import WordGraph
+
+from WordGraph import WordGraph
 
 
 def make_ladder(first, second, debug):
     """Return a WordGraph from the first word to the second word."""
-
-    # There's lots of funny pep8 rules about how many empty lines and such to have. How interesting
-    # Also pycharm is kinda sick. You ever used intelliJ for java? It's the same company
-
     if debug:
         print 'Creating a word graph from "%s" to "%s"' % (first, second)
 
-    graph = WordGraph.WordGraph()
+    graph = WordGraph()
 
     return graph
 
 
-if __name__ == '__main__':
+def main():
     debug = False
     for arg in sys.argv:
         if arg == "-d":
@@ -32,3 +30,7 @@ if __name__ == '__main__':
     graph = make_ladder(first, second, debug)
 
     print 'graph:', graph
+
+
+if __name__ == '__main__':
+    main()

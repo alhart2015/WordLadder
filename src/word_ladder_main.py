@@ -29,6 +29,7 @@ def make_ladder(first, second, debug):
 
 
 def main():
+    """Program entry function."""
     debug = False
     for arg in sys.argv:
         if arg == "-d":

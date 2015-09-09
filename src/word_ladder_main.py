@@ -42,12 +42,50 @@ def make_ladder(first, second, word_file, debug):
     start_time = time.time()
     graph = WordGraph()
     add_words(graph, len(first), word_file, debug)
-    path = graph.path(first, second)
+
+    valid = True
+    if first not in graph:
+        print first, "not in dictionary"
+        valid = False
+    if second not in graph:
+        print second, "not in dictionary"
+        valid = False
+
+    if valid:
+        path = graph.path(first, second)
+    else:
+        path = None
     end_time = time.time()
 
     debug_print('Elapsed time: %f s', (end_time - start_time), debug)
 
     return path
+
+
+def make_graph_from_dictionary(filename):
+    """Read in a dictionary of words all the same length and populate the graph.
+
+    :type filename: basestring
+    :param filename: the name of the dictionary file to read in
+
+    :rtype a WordGraph populated by the dictionary
+    """
+    g = WordGraph()
+    words = read_in_file(filename)
+    for word in words:
+        g.add_word(word)
+    return g
+
+
+def read_in_file(filename):
+    """Reads in a file containing a list of words, one word on a line.
+
+    :type filename: basestring
+    :type filename: the name of the list of words
+
+    :rtype a list of words
+    """
+    return []
 
 
 def main():

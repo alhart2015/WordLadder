@@ -19,8 +19,12 @@ class WordGraphTest(unittest.TestCase):
         word = "beer"
         other = "bend"
         third = "deer"
+        longer = "wildcat"
+        longerer = "wildcats"
         self.assertTrue(g.is_neighbor(word, third))
         self.assertFalse(g.is_neighbor(word, other))
+        self.assertFalse(g.is_neighbor(word, longer))
+        self.assertFalse(g.is_neighbor(longer, longerer))
 
     def test_contains(self):
         g = WordGraph()

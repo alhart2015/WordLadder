@@ -51,6 +51,10 @@ class WordGraph():
         :param other:  a string to compare to the word
         :rtype : bool
         """
+        # Remove this if we want to match words with different lengths?
+        if len(word) is not len(other):
+            return False
+
         differences = 0
         for i in range(len(word)):
             if differences > 1:

@@ -28,5 +28,20 @@ class WordGraphTest(unittest.TestCase):
         self.assertFalse("beef" in g)
         self.assertTrue("beer" in g)
 
+    def test_path(self):
+        g = WordGraph()
+        g.add_word("beer")
+        g.add_word("beef")
+        g.add_word("bear")
+        g.add_word("dear")
+        g.add_word("beat")
+        g.add_word("heat")
+        g.add_word("hear")
+        g.add_word("poop")
+        print g.path("beef", "dear")
+        print g.path("beef", "poop")
+        self.assertTrue(g.path("heat", "beef") != [])
+        self.assertFalse(g.path("poop", "hear"))
+
 if __name__ == "__main__":
     unittest.main()

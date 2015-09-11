@@ -14,41 +14,20 @@ def debug_print(fmt, stuff, debug):
         print fmt % stuff
 
 
-def add_words(graph, word_length, word_file, debug):
-    """Adds the words found in word_file of length word_length to graph."""
-    debug_print('Adding words of length %d from %s...',
-                (word_length, word_file),
-                debug)
-
-    first_words = []
-    total_words = 0
-    with open(word_file) as input_file:
-        for word in input_file:
-            word = word.rstrip()
-            if len(word) == word_length:
-                graph.add_word(word)
-                total_words += 1
-                if len(first_words) < 5:
-                    first_words.append(word)
-
-    debug_print('Words added: %d (%s...)', (total_words, first_words), debug)
-
-
 def make_ladder(first, second, word_file, debug):
     """Return a path from the first word to the second word."""
     debug_print('Creating a word graph from "%s" to "%s"',
                 (first, second), debug)
 
     start_time = time.time()
-    graph = WordGraph()
-    add_words(graph, len(first), word_file, debug)
+    graph = make_graph_from_dictionary(word_file, len(first), debug)
 
     valid = True
     if first not in graph:
-        print first, "not in dictionary"
+        print "Your first word ('%s') is not in the dictionary" % (first)
         valid = False
     if second not in graph:
-        print second, "not in dictionary"
+        print "Your second word ('%s') is not in the dictionary" % (second)
         valid = False
 
     if valid:
@@ -65,7 +44,7 @@ def make_ladder(first, second, word_file, debug):
     return path
 
 
-def make_graph_from_dictionary(filename):
+def make_graph_from_dictionary(filename, word_length, debug):
     """Read in a dictionary of words all the same length and populate the graph.
 
     :type filename: basestring
@@ -74,13 +53,17 @@ def make_graph_from_dictionary(filename):
     :rtype a WordGraph populated by the dictionary
     """
     g = WordGraph()
-    words = read_in_file(filename)
+    words = read_in_file(filename, word_length)
     for word in words:
         g.add_word(word)
+
+    debug_print('Added %d words of length %d from %s...',
+                (len(words), word_length, filename), debug)
+
     return g
 
 
-def read_in_file(filename):
+def read_in_file(filename, word_length):
     """Reads in a file containing a list of words, one word on a line.
 
     :type filename: basestring
@@ -88,7 +71,13 @@ def read_in_file(filename):
 
     :rtype a list of words
     """
-    return []
+    words = []
+    with open(filename) as input_file:
+        for word in input_file:
+            word = word.rstrip()
+            if len(word) == word_length:
+                words.append(word)
+    return words
 
 
 def main():
@@ -107,7 +96,7 @@ def main():
 
     path = make_ladder(first, second, word_file, debug)
 
-    print 'path:', path
+    print 'Path:', path
 
 
 if __name__ == '__main__':

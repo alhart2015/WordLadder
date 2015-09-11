@@ -7,18 +7,18 @@ import sys
 
 from WordGraph import WordGraph
 
+DEBUG = False
 
-def debug_print(fmt, stuff, debug):
-    if debug:
+def debug_print(fmt, stuff):
+    if DEBUG:
         print '***',
         print fmt % stuff
 
 
-def add_words(graph, word_length, word_file, debug):
+def add_words(graph, word_length, word_file):
     """Adds the words found in word_file of length word_length to graph."""
     debug_print('Adding words of length %d from %s...',
-                (word_length, word_file),
-                debug)
+                (word_length, word_file))
 
     first_words = []
     total_words = 0
@@ -31,17 +31,16 @@ def add_words(graph, word_length, word_file, debug):
                 if len(first_words) < 5:
                     first_words.append(word)
 
-    debug_print('Words added: %d (%s...)', (total_words, first_words), debug)
+    debug_print('Words added: %d (%s...)', (total_words, first_words))
 
 
-def make_ladder(first, second, word_file, debug):
+def make_ladder(first, second, word_file):
     """Return a path from the first word to the second word."""
-    debug_print('Creating a word graph from "%s" to "%s"',
-                (first, second), debug)
+    debug_print('Creating a word graph from "%s" to "%s"', (first, second))
 
     start_time = time.time()
     graph = WordGraph()
-    add_words(graph, len(first), word_file, debug)
+    add_words(graph, len(first), word_file)
 
     valid = True
     if first not in graph:
@@ -57,7 +56,7 @@ def make_ladder(first, second, word_file, debug):
         path = None
     end_time = time.time()
 
-    debug_print('Elapsed time: %f s', (end_time - start_time), debug)
+    debug_print('Elapsed time: %f s', (end_time - start_time))
 
     return path
 
@@ -90,11 +89,10 @@ def read_in_file(filename):
 
 def main():
     """Program entry function."""
-    debug = False
     word_file = "/usr/share/dict/words"
     for i in range(len(sys.argv)):
         if sys.argv[i] == "-d":
-            debug = True
+            DEBUG = True
         elif sys.argv[i] == "-f":
             i += 1
             word_file = sys.argv[i]
@@ -102,7 +100,7 @@ def main():
     first = raw_input('First word: ')
     second = raw_input('Second word: ')
 
-    path = make_ladder(first, second, word_file, debug)
+    path = make_ladder(first, second, word_file)
 
     print 'path:', path
 

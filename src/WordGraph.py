@@ -111,5 +111,6 @@ class WordGraph():
         for other in self.__graph[start]:
             if other not in visited:
                 path.append(start)
-                return self.dfs_helper(other, end, path, visited)
-
+                potential_path = self.dfs_helper(other, end, path, visited)
+                if potential_path is not None:
+                  return potential_path

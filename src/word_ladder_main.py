@@ -53,6 +53,9 @@ def make_ladder(first, second, word_file, debug):
 
     if valid:
         path = graph.path(first, second)
+        if debug:
+            print graph.neighbors(first)
+            print graph.neighbors(second)
     else:
         path = None
     end_time = time.time()

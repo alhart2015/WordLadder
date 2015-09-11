@@ -4,7 +4,7 @@ edge between them if they are separated by one letter (eg. beer, bear).
 """
 
 
-class WordGraph():
+class WordGraph:
     """Graph of words with above rules. Represents the graph as an adjacency
     list."""
 
@@ -68,6 +68,10 @@ class WordGraph():
         if word not in self.__graph.keys():
             return False
         return len(self.__graph[word]) > 0
+
+    def neighbors(self, word):
+        """Returns the neighbors of the word"""
+        return self.__graph[word]
 
     def __contains__(self, item):
         if item in self.__graph.keys():

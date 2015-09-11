@@ -47,5 +47,13 @@ class WordGraphTest(unittest.TestCase):
         self.assertTrue(g.path("heat", "beef") != [])
         self.assertFalse(g.path("poop", "hear"))
 
+        words = ['fool', 'rool', 'tool', 'gool', 'mool', 'sool', 'woof', 'wood', 'bool', 'woon', 'dool', 'woom', 'pool', 'cool']
+        for w in words:
+            g.add_word(w)
+        print g.neighbors("woof")
+        g.add_word("wool")
+        print g.path("woof", "wool")
+        print g
+
 if __name__ == "__main__":
     unittest.main()

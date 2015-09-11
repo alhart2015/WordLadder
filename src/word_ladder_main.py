@@ -102,7 +102,7 @@ def main():
 
     path = make_ladder(first, second, word_file)
 
-    print 'path:', path
+    print 'Path:', path
 
 
 if __name__ == '__main__':

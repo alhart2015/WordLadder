@@ -24,10 +24,10 @@ def make_ladder(first, second, word_file, debug):
 
     valid = True
     if first not in graph:
-        print first, "not in dictionary"
+        print "Your first word ('%s') is not in the dictionary" % (first)
         valid = False
     if second not in graph:
-        print second, "not in dictionary"
+        print "Your second word ('%s') is not in the dictionary" % (second)
         valid = False
 
     if valid:

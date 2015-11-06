@@ -118,3 +118,17 @@ class WordGraph:
                 potential_path = self.dfs_helper(other, end, path, visited)
                 if potential_path is not None:
                   return potential_path
+
+    def parallel_dfs(self, start, end):
+        """Implement threading to do several searches in parallel. As it stands now, we'll just spawn four threads
+        and return when then first one finishes.
+
+        :type start: basestring
+        :param start: the first node in the search
+
+        :type end: basestring
+        :param end: the word you're searching for
+
+        :rtype a list of strings in the path
+        """
+        pass
